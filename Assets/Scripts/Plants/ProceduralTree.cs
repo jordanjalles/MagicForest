@@ -178,9 +178,15 @@ public class ProceduralTree : MonoBehaviour
 
     private Branch GrowLeaf(Branch parentBranch, float length, float width)
     {
+        //inherited like branches
         float branchWidth = width * Mathf.Pow((1 - taperWidth), parentBranch.depth);
         float branchLength = length * Mathf.Pow((1 - taperHeight), parentBranch.depth);
-        return new Branch(parentBranch.tipPos, branchLength, branchWidth, leafBody, parentBranch.body.transform, parentBranch.depth);
+
+        //make the leaves a bit bigger and uniform scale
+        float leafScale = branchWidth + branchLength;
+
+
+        return new Branch(parentBranch.tipPos, leafScale, leafScale, leafBody, parentBranch.body.transform, parentBranch.depth);
     }
 
     public void UpdateBranchRecursively(Branch branch)
