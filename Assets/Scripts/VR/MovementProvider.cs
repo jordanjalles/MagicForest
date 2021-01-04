@@ -6,50 +6,53 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class MovementProvider : LocomotionProvider
 {
-    public float topSpeed = 1.0f;
+    public float moveForceMultiplier = 100.0f;
     public float speedSmoothing = 0.5f;
     private float currentSpeed = 0f;
+    public float topWalkSpeed = 10f;
 
-    public float gravityMultiplier = 1.0f;
+    public float gravityMultiplier = 10000.0f;
     public List<XRController> controllers = null;
 
-    private CharacterController characterController = null;
+    private Rigidbody rBody = null;
+    private CapsuleCollider collider = null;
     private GameObject head = null;
 
     
     // Start is called before the first frame update
     protected override void Awake()
     {
-        characterController = GetComponent<CharacterController>();
+        rBody = GetComponent<Rigidbody>();
+        collider = GetComponent<CapsuleCollider>();
         head = GetComponent<XRRig>().cameraGameObject;
     }
 
     private void Start()
     {
-        PositionController();
+        PositionCollider();
     }
 
     // Update is called once per frame
     void Update()
     {
-        PositionController();
+        PositionCollider();
         CheckForInput();
         ApplyGravity();
     }
 
-    private void PositionController()
+    private void PositionCollider()
     {
         float headHeight = Mathf.Clamp(head.transform.localPosition.y, 1, 2);
-        characterController.height = headHeight;
+        collider.height = headHeight;
 
         Vector3 newCenter = Vector3.zero;
-        newCenter.y = characterController.height / 2;
-        newCenter.y += characterController.skinWidth;
+        newCenter.y = collider.height / 2;
+        
 
         newCenter.x = head.transform.localPosition.x;
         newCenter.z = head.transform.localPosition.z;
 
-        characterController.center = newCenter;
+        collider.center = newCenter;
     }
 
     private void CheckForInput()
@@ -81,12 +84,13 @@ public class MovementProvider : LocomotionProvider
         direction = Quaternion.Euler(headRotation) * direction;
 
 
-        currentSpeed = Mathf.Lerp(currentSpeed, topSpeed, speedSmoothing);
-
         //Vector3 movement = direction * newSpeed;
-        Vector3 movement = direction * currentSpeed;
+        Vector3 movement = direction * moveForceMultiplier;
+
+
+        movement *= (topWalkSpeed - rBody.velocity.magnitude)/topWalkSpeed;
         
-        characterController.Move(movement * Time.deltaTime);
+        rBody.AddForce(movement * Time.deltaTime, ForceMode.Acceleration);
     }
 
 
@@ -96,6 +100,6 @@ public class MovementProvider : LocomotionProvider
         Vector3 gravity = new Vector3(0, Physics.gravity.y * gravityMultiplier, 0);
         gravity.y *= Time.deltaTime;
 
-        characterController.Move(gravity);
+        rBody.AddForce(gravity, ForceMode.Acceleration);
     }
 }

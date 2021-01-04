@@ -62,15 +62,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_2ED912EE: 0.45
+    - Vector1_2ED912EE: 0.31
     - Vector1_2F564A74: 0.18
-    - Vector1_3BEC637B: 18.7
-    - Vector1_9856694F: 0.04
-    - Vector1_A7C684A6: 0.64
-    - Vector1_C0F1BEE7: 0.92
-    - Vector1_C253E87F: 0.377
-    - Vector1_C946DDF: 0.31
-    - Vector1_E10E4806: 0.296
+    - Vector1_3BEC637B: 18.5
+    - Vector1_9856694F: 0.07
+    - Vector1_A7C684A6: -2.71
+    - Vector1_C0F1BEE7: 0.8
+    - Vector1_C253E87F: 0.15
+    - Vector1_C946DDF: 0.23
+    - Vector1_E10E4806: 0.17
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -93,18 +93,21 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_226E6958: {r: 0.12281949, g: 0.18025035, b: 0.18867922, a: 0}
+    - Color_226E6958: {r: 0.028479882, g: 0.26282868, b: 0.3018868, a: 0}
     - Color_37E0E4A2: {r: 1, g: 0.9104247, b: 0.8254717, a: 0}
-    - Color_488FCE99: {r: 0, g: 0, b: 0, a: 0}
+    - Color_488FCE99: {r: 0, g: 0.0754717, b: 0.038248673, a: 0}
     - Color_540BC646: {r: 0, g: 0.84043, b: 1, a: 0}
-    - Color_5E916983: {r: 0.1924172, g: 0.8867924, b: 0.56622857, a: 0}
+    - Color_56B2F29D: {r: 0.7830189, g: 0.520371, b: 0.45799217, a: 0}
+    - Color_5E916983: {r: 0, g: 0.16954854, b: 0.4528302, a: 0}
     - Color_62A1D931: {r: 0, g: 0, b: 0, a: 0}
-    - Color_6D2EC675: {r: 0.8207547, g: 0.116144516, b: 0.7034737, a: 0}
-    - Color_71B635FF: {r: 1, g: 1, b: 1, a: 0}
+    - Color_6D2EC675: {r: 1, g: 0, b: 0.2943926, a: 0}
+    - Color_71B635FF: {r: 0.4433962, g: 1, b: 0.76592183, a: 0}
     - Color_870F8328: {r: 0.764151, g: 0, b: 0.10452587, a: 0}
     - Color_C78DCF7F: {r: 0, g: 0, b: 0, a: 0}
-    - Color_E643AFA4: {r: 0.9579436, g: 0.990566, b: 0.9158063, a: 0}
+    - Color_E643AFA4: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _sunColor: {r: 1, g: 0.9931443, b: 0.8773585, a: 0}
+    - _sunsetColor: {r: 1, g: 0, b: 0.6420455, a: 0}
